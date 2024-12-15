@@ -157,7 +157,7 @@
 추출 결과
 <code>
  {
-"gamerName": "龙宫公主",
+ "gamerName": "龙宫公主",
         "opponentGamerName": "n8jj",
         "matchID": "KR_7250671169",
         "gameCreation": 1725030458253,
@@ -172,7 +172,37 @@
         "at14solodeathsRatio": 0.0,
         "at14dpm": 351.6142430903588,
         "at14dtpm": 431.37726289781835,
-        "at14cspm": 7.640683186569535,.........}
+        "at14cspm": 7.640683186569535,
+        "at14gpm": 350.40030277099726,
+        "at14xpm": 432.3769784549396,
+        "at14dpd": 4924.0,
+        "at14dpg": 1.003464438557163,
+        "at14dpmdiff": -208.08365238937967,
+        "at14dtpmdiff": 29.348792426916646,
+        "at14cspmdiff": -1.4995733356818721,
+        "at14gpmdiff": -124.25036209935507,
+        "at14xpmdiff": -99.90014745804467,
+        "at14dpddiff": -2914.0,
+        "at14dpgdiff": -0.17571413824440102,
+        "af14killsRatio": 0.8,
+        "af14deathsRatio": 0.36363636363636304,
+        "af14assistsRatio": 0.7368421052631571,
+        "af14solokillsRatio": 1.0,
+        "af14solodeathsRatio": 1.0,
+        "af14dpm": 1405.2821175888223,
+        "af14dtpm": 1037.830872239533,
+        "af14cspm": 6.170219216644072,
+        "af14gpm": 512.0694309889185,
+        "af14xpm": 630.5376399484846,
+        "af14dpd": 5978.5,
+        "af14dpg": 2.744319485884783,
+        "af14dpmdiff": 568.6591558044256,
+        "af14dtpmdiff": -423.62962221702014,
+        "af14cspmdiff": 1.057751865710412,
+        "af14gpmdiff": 147.14503731882627,
+        "af14xpmdiff": 277.89492071914106,
+        "af14dpddiff": 3944.642857142857,
+        "af14dpgdiff": 0.451726893292191}
 </code>
 </pre><br/><br/>
 
@@ -182,7 +212,15 @@
 현재 예측하는 값이 승리와 패배로 이진분류에 해당한다. 모델중 이진분류에 가장 적합한 모델은 sigmoid 함수를 사용하는 logistic regression이 가장 적합하다 생각해서 선택했습니다.
 
 * 원소 선택
-  * 한타 페이즈가 5:5 싸움이다 보니 1:1인 라인전 과정보다 변수가 많이 생기기 때문에 af14의 원소들을 선택햇다.
+  1.한타 페이즈가 5:5 싸움이다 보니 1:1인 라인전 과정보다 변수가 많이 생기기 때문에 af14의 원소들을 선택햇다.
+  2. af14와 targetwin간의 상관관계를 나타낸 후 상관계수가 높은 8개를 뽑은 후 8개의 원소를 1개 부터 8개의 모든 무작위 배치를 넣은 모델중 가장 auroc가 높은 원소를 뽑았다.
+  ![image](https://github.com/user-attachments/assets/52e90145-1d62-4c14-9b93-b43d30f90d2d)><br/>
+  원소의 배치가 'af14deathsRatio', 'af14assistsRatio', 'af14dtpm', 'af14gpm', 'af14cspmdiff', 'af14xpmdiff'일때 auroc가 0.9784로 가장 높았다.]
+
+## 결론 
+
+'af14deathsRatio', 'af14assistsRatio', 'af14dtpm', 'af14gpm', 'af14cspmdiff', 'af14xpmdiff'를 logistic regression과 함께 쓸때가 가장 정확하게 승패를 예측 할 수 있다는 것이다.
+
     
     
    

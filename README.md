@@ -211,15 +211,19 @@
 * 모델 선택
 현재 예측하는 값이 승리와 패배로 이진분류에 해당한다. 모델중 이진분류에 가장 적합한 모델은 sigmoid 함수를 사용하는 logistic regression이 가장 적합하다 생각해서 선택했습니다.
 
-* 원소 선택
-  1.한타 페이즈가 5:5 싸움이다 보니 1:1인 라인전 과정보다 변수가 많이 생기기 때문에 af14의 원소들을 선택햇다.
-  2. af14와 targetwin간의 상관관계를 나타낸 후 상관계수가 높은 8개를 뽑은 후 8개의 원소를 1개 부터 8개의 모든 무작위 배치를 넣은 모델중 가장 auroc가 높은 원소를 뽑았다.
-  ![image](https://github.com/user-attachments/assets/52e90145-1d62-4c14-9b93-b43d30f90d2d)><br/>
-  원소의 배치가 'af14deathsRatio', 'af14assistsRatio', 'af14dtpm', 'af14gpm', 'af14cspmdiff', 'af14xpmdiff'일때 auroc가 0.9784로 가장 높았다.]
+* 원소 선택<br/>
+
+  * 한타 페이즈가 5:5 싸움이다 보니 1:1인 라인전 과정보다 변수가 많이 생기기 때문에 af14의 원소들을 선택햇다.<br/>
+  * af14와 targetwin간의 상관관계를 나타낸 후 상관계수가 높은 8개를 뽑은 후 8개의 원소를 1개 부터 8개의 모든 무작위 배치를 넣은 모델중 가장 auroc가 높은 원소를 뽑았다.<br/>
+     * 상관관계: 사용한 이유: 종속 변수가 고정이 돼있는 상태로 상관계수의 절대값들이 큰 값일수록 승패에 영향을 주는 원소들이라고 생각했기 때문이다.
+       
+  ![image](https://github.com/user-attachments/assets/52e90145-1d62-4c14-9b93-b43d30f90d2d) <br/>
+  
+  원소의 배치가 'af14deathsRatio', 'af14assistsRatio', 'af14dtpm', 'af14gpm', 'af14cspmdiff', 'af14xpmdiff'일때 auroc가 0.9784로 가장 높았다.
 
 ## 결론 
 
-'af14deathsRatio', 'af14assistsRatio', 'af14dtpm', 'af14gpm', 'af14cspmdiff', 'af14xpmdiff'를 logistic regression과 함께 쓸때가 가장 정확하게 승패를 예측 할 수 있다는 것이다.
+af14deathsRatio', 'af14assistsRatio', 'af14dtpm', 'af14gpm', 'af14cspmdiff', 'af14xpmdiff'를 logistic regression과 함께 쓸때가 가장 정확하게 승패를 예측 할 수 있다는 것이다.
 
     
     
